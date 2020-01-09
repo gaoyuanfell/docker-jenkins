@@ -4,6 +4,8 @@ networks:
 services:
   jenkins-moka:
     build: jenkins
+    networks:
+      - jenkins
     ports:
       - "8080:8080"
       - "50000:50000"
