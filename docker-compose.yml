@@ -1,0 +1,20 @@
+version: "3.1"
+networks:
+  jenkins:
+services:
+  jenkins-moka:
+    image: jenkins/jenkins:latest
+    networks:
+      - jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ./data:/var/jenkins_home
+
+  jenkins-nginx:
+    build: nginx
+    networks:
+      - jenkins
+    ports:
+      - "3001:3001"
