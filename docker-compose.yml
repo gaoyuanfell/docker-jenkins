@@ -3,7 +3,7 @@ networks:
   jenkins:
 services:
   jenkins-moka:
-    image: jenkins/jenkins:latest
+    build: jenkins
     networks:
       - jenkins
     ports:
