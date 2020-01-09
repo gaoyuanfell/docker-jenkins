@@ -1,6 +1,6 @@
-ARG  PATH=$PWD
+ARG  DIRPATH=$PWD
 FROM jenkins/jenkins
 USER root
-RUN chown -R 1000:1000 $PATH/data
+RUN chown -R 1000:1000 $DIRPATH/data
 EXPOSE 8080
 EXPOSE 50000
