@@ -4,7 +4,6 @@ networks:
 services:
   jenkins-moka:
     build: jenkins
-    container_name: jenkins-moka
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -15,7 +14,7 @@ services:
     build: nginx
     networks:
       - jenkins
-    links:
-      - jenkins-moka:jenkins-moka
+    depends_on:
+      - jenkins-moka
     ports:
       - "3001:3001"
