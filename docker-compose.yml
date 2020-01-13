@@ -15,7 +15,7 @@ services:
   jenkins-nginx:
     build: nginx
     networks:
-      - jenkins-moka
+      - jenkins
     depends_on:
       - jenkins-moka
     ports:
