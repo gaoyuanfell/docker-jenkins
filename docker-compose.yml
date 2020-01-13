@@ -1,11 +1,11 @@
 version: "3.1"
 networks:
-  jenkins:
+  jenkins-moka:
 services:
   jenkins-moka:
     build: jenkins
     networks:
-      - jenkins
+      - jenkins-moka
     ports:
       - "8080:8080"
       - "50000:50000"
@@ -15,7 +15,7 @@ services:
   jenkins-nginx:
     build: nginx
     networks:
-      - jenkins
+      - jenkins-moka
     depends_on:
       - jenkins-moka
     ports:
