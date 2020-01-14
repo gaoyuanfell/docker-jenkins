@@ -7,16 +7,18 @@ services:
     networks:
       - jenkins-moka
     ports:
-      - "8080:8080"
+      - "3001:8080"
       - "50000:50000"
-    # volumes:
-    #   - ./data:/var/jenkins_home
+    volumes:
+      - ./data:/var/jenkins_home
+  # jenkins-nginx:
+  #   build: nginx
+  #   networks:
+  #     - jenkins-moka
+  #   depends_on:
+  #     - jenkins-moka
+  #   ports:
+  #     - "3001:3001"
 
-  jenkins-nginx:
-    build: nginx
-    networks:
-      - jenkins-moka
-    depends_on:
-      - jenkins-moka
-    ports:
-      - "3001:3001"
+volumes:
+  data:
