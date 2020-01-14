@@ -9,8 +9,8 @@ services:
     ports:
       - "8080:8080"
       - "50000:50000"
-    # volumes:
-    #   - ./data:/var/jenkins_home
+    volumes:
+      - ./data:/var/jenkins_home
 
   jenkins-nginx:
     build: nginx
@@ -20,3 +20,6 @@ services:
       - jenkins-moka
     ports:
       - "3001:3001"
+
+volumes:
+  ./data:
